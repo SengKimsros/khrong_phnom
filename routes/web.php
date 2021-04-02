@@ -21,6 +21,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/test',function(){
-    return view('test.ss');
+Route::get('/dashboards',function(){
+    return view('dashboard');
 });
