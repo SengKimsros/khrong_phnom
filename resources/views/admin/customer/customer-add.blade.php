@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="page-wrapper" style="min-height: 525px;">
             <div class="container-fluid">
-                <h1>Customer</h1>
+                <h1> Add Customer</h1>
             </div>
         </div>
     </div>

@@ -5644,6 +5644,9 @@ ul.list-icons li i {
     line-height: 60px;
     text-align: center
 }
+.logo_imag{
+    width: 100px;margin: 1px 70px 5px;
+}
 
 .logo i {
     color: #fff
@@ -15905,6 +15908,9 @@ ul.pro-amenities li span i {
     .logo b {
         width: 60px;
         margin-left: 0
+    }
+    .logo_imag{
+        width: 50px;margin: 0px 0px 0px;
     }
     .profile,
     .profile i {
