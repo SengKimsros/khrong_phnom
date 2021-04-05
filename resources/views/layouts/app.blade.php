@@ -224,12 +224,12 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated flipInY">
-                                <li><a href="{{route('profile.show')}}"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a href="{{url('profile.show')}}"><i class="fa fa-user"></i> Profile</a></li>
                                 {{-- <li><a href="javascript:void(0);"><i class="fa fa-inbox"></i> Inbox</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="javascript:void(0);"><i class="fa fa-cog"></i> Account Settings</a></li>
                                 <li role="separator" class="divider"></li> --}}
-                                <li><a href="{{route('logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="{{url('logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
                         <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);"> Hanna Gover</a></p>
@@ -238,41 +238,41 @@
                 <nav class="sidebar-nav">
                     <ul id="side-menu">
                         <li>
-                            <a class="active waves-effect" href="{{route('dashboard')}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu"> Dashboard <span class="label label-rounded label-info pull-right">3</span></span></a>
+                            <a class="active waves-effect" href="{{url('admin/dashboard')}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu"> Dashboard <span class="label label-rounded label-info pull-right">3</span></span></a>
                         </li>
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-basket fa-fw"></i> <span class="hide-menu"> Project </span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li> <a href="{{route('project')}}">Project</a> </li>
-                                <li> <a href="{{route('create.project')}}">Add Project</a> </li>
+                                <li> <a href="{{url('admin/project')}}">Project</a> </li>
+                                <li> <a href="{{url('admin/project/create')}}">Add Project</a> </li>
                             </ul>
                         </li>
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-envelope-letter fa-fw"></i> <span class="hide-menu"> Home <span class="label label-rounded label-primary pull-right">5</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li> <a href="{{route('home')}}">My Home</a> </li>
-                                <li> <a href="{{route('create.home')}}">Add Home</a> </li>
+                                <li> <a href="{{url('admin/home')}}">My Home</a> </li>
+                                <li> <a href="{{url('admin/home/create')}}">Add Home</a> </li>
                             </ul>
                         </li>
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-equalizer fa-fw"></i> <span class="hide-menu"> Booking <span class="label label-rounded label-danger pull-right">18</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('booking')}}">Booking</a></li>
-                                <li><a href="{{route('create.booking')}}">Add Booking</a></li>
+                                <li><a href="{{url('admin/booking')}}">Booking</a></li>
+                                <li><a href="{{url('admin/booking/create')}}">Add Booking</a></li>
                             </ul>
                         </li>
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-notebook fa-fw"></i> <span class="hide-menu"> Post </span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('post')}}">Post</a></li>
-                                <li><a href="{{route('create.post')}}">Add Post</a></li>
+                                <li><a href="{{url('admin/post')}}">Post</a></li>
+                                <li><a href="{{url('admin/create.post')}}">Add Post</a></li>
                             </ul>
                         </li>
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Agent</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('customer')}}">Agents</a></li>
-                                <li><a href="{{route('create.customer')}}">Add Agent</a></li>
+                                <li><a href="{{url('admin/customer')}}">Agents</a></li>
+                                <li><a href="{{url('admin/create.customer')}}">Add Agent</a></li>
                             </ul>
                         </li>
                         <li>
