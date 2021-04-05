@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\booking;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,8 +15,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-
-        return view('admin.booking.booking');
+        $booking=booking::all();
+        return view('admin.booking.booking')->with('booking',$booking);
     }
 
     /**
@@ -36,8 +37,22 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        echo 'store';
-        // booking::created($request->all());
+
+        $request->validate([
+            'home_id'=>'required|integer',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'phone'=>'required',
+            'email'=>'required|unique:bookings|max:255',
+            'service_id'=>'required|integer',
+            'amount'=>'required|numeric',
+            'address'=>'required'
+        ]);
+        if(booking::create($request->all())){
+            echo 'Success';
+        }else{
+            echo 'Not';
+        }
     }
 
     /**
@@ -48,7 +63,7 @@ class BookingController extends Controller
      */
     public function show(booking $booking)
     {
-        echo 'show';
+        echo $booking['id'];
     }
 
     /**
@@ -59,7 +74,7 @@ class BookingController extends Controller
      */
     public function edit(booking $booking)
     {
-        echo 'edit';
+        print_r($booking);
     }
 
     /**
@@ -71,7 +86,21 @@ class BookingController extends Controller
      */
     public function update(Request $request, booking $booking)
     {
-        echo 'update';
+        $request->validate([
+            'home_id'=>'required|integer',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'phone'=>'required',
+            'email'=>'required|unique:bookings|max:255',
+            'service_id'=>'required|integer',
+            'amount'=>'required|numeric',
+            'address'=>'required'
+        ]);
+        if(booking::update($request->all())){
+            echo 'Success';
+        }else{
+            echo 'Not';
+        }
     }
 
     /**
@@ -82,6 +111,6 @@ class BookingController extends Controller
      */
     public function destroy(booking $booking)
     {
-        echo 'destroy';
+
     }
 }

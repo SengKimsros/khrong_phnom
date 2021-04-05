@@ -278,6 +278,7 @@
                         <li>
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-settings fa-fw"></i> <span class="hide-menu"> Setting</span></a>
                             <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{url('admin/role')}}">Role</a></li>
                                 <li><a href="#">Header</a></li>
                                 <li><a href="#">Footer</a></li>
                             </ul>
@@ -317,6 +318,7 @@
     <script src="/cubic/js/db1.js"></script>
     <!-- ===== Style Switcher JS ===== -->
     <script src="/cubic/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="/js/my_app.js"></script>
 </body>
 
 </html>

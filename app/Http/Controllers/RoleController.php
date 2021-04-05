@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\admin\position;
 use App\Models\role;
+use App\Models\table;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,7 +16,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $role=position::where('status',1)->orderBy('id')->get();
+        $table=table::where('status',1)->orderBy('name')->get();
+        // dd($table);
+        return view('admin.role_permission.role',['role'=>$role,'table'=>$table]);
     }
 
     /**
@@ -24,7 +29,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+
+        // return view('admin.role_permission.role-add')->with(['table'=>$table]);
     }
 
     /**

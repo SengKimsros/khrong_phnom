@@ -16,11 +16,10 @@ class CreatePermisionsTable extends Migration
         Schema::create('permisions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('table_id')->nullable();
-            $table->bigInteger('role_id')->nullable();
+            $table->bigInteger('position_id')->nullable();
             $table->bigInteger('permission_type_id')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->bigInteger('updated_by')->nullable();
+            $table->timestamps();
         });
     }
 

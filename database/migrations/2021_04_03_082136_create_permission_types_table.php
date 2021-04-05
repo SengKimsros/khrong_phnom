@@ -18,8 +18,7 @@ class CreatePermissionTypesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->bigInteger('updated_by')->nullable();
+            $table->timestamps();
         });
         DB::table('permission_types')->insert(
             [
@@ -27,18 +26,18 @@ class CreatePermissionTypesTable extends Migration
                     'name'=>'Add',
                     'status'=>1,
                     'created_at'=>now(),
-                    'updated_by'=>1
+                    'updated_at'=>now()
                 ],
                 [
                     'name'=>'Update',
                     'status'=>1,
                     'created_at'=>now(),
-                    'updated_by'=>1
+                    'updated_at'=>now()
                 ],[
                     'name'=>'Delete',
                     'status'=>1,
                     'created_at'=>now(),
-                    'updated_by'=>1
+                    'updated_at'=>now()
                 ],
             ]
         );

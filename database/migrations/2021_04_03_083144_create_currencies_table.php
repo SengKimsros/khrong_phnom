@@ -17,8 +17,7 @@ class CreateCurrenciesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('create_at')->nullable();
-            $table->bigInteger('updated_by')->nullable();
+            $table->timestamps();
         });
     }
 

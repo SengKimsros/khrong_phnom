@@ -18,29 +18,28 @@ class CreatePositionsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->bigInteger('updated_by')->nullable();
+            $table->timestamps();
 
 
         });
         DB::table('positions')->insert(
             [
                 [
-                    'name'=>'Agent',
-                    'status'=>1,
-                    'created_at'=>now(),
-                    'updated_by'=>1
-                ],
-                [
-                    'name'=>'Customer',
-                    'status'=>1,
-                    'created_at'=>now(),
-                    'updated_by'=>1
-                ],[
                     'name'=>'Admin',
                     'status'=>1,
                     'created_at'=>now(),
-                    'updated_by'=>1
+                    'updated_at'=>now()
+                ],
+                [
+                    'name'=>'Agent',
+                    'status'=>1,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ],[
+                    'name'=>'Customer',
+                    'status'=>1,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
                 ],
             ]
         );
