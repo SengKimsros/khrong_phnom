@@ -5,7 +5,9 @@
     <div class="container-fluid">
         <div class="page-wrapper" style="min-height: 525px;">
             <div class="container-fluid">
-                <h1>Project</h1>
+                <div class="row">
+
+                </div>
             </div>
         </div>
     </div>

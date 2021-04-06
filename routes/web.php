@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RoleController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,35 +27,17 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
+
+
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-        Route::get('/dashboard',function(){
-            return view('dashboard');
-        })->name('dashboard');
+        Route::resource('dashboard', DashboardController::class);
+        Route::resource('project', ProjectController::class);
+        Route::resource('home', HomeController::class);
+        Route::resource('booking', BookingController::class);
+        Route::resource('role', RoleController::class);
 
-        Route::get('/project',function(){
-            return view('admin.project.project');
-        })->name('project');
 
-        Route::get('/create/project',function(){
-            return view('admin.project.project-add');
-        })->name('create.project');
-
-        Route::get('/home',function(){
-            return view('admin.home.home');
-        })->name('home');
-
-        Route::get('create/home',function(){
-            return view('admin.home.home-add');
-        })->name('create.home');
-
-        Route::get('/booking',function(){
-            return view('admin.booking.booking');
-        })->name('booking');
-
-        Route::get('/create/booking',function(){
-            return view('admin.booking.booking-add');
-        })->name('create.booking');
 
         Route::get('/post',function(){
             return view('admin.post.post');
