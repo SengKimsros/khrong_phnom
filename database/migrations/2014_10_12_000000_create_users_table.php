@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('role_id')->nullable();
             $table->text('description')->nullable();
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -37,7 +38,11 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert([
             'name'=>'Admin',
             'email'=>'admin@admin.com',
-            'password'=>'$2y$10$9UBAs8f5D593.6HTRhERHu7fWr32zBQLzqFqx0KeRt2eE9o53YEBK'
+            'password'=>'$2y$10$9UBAs8f5D593.6HTRhERHu7fWr32zBQLzqFqx0KeRt2eE9o53YEBK',
+            'gender'=>1,
+            'first_name'=>'Admin',
+            'last_name'=>'Admin',
+            'position_id'=>1
         ]);
     }
 

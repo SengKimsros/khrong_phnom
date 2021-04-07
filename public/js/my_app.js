@@ -1,7 +1,7 @@
 $(function(){
-    // $('table').each(function(){
-    //     $(this).DataTable();
-    // });
+    $('table').each(function(){
+        $(this).DataTable();
+    });
     // role
     $('section ul li').on('click',function($key,value){
         $('section ul li').removeClass('active');

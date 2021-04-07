@@ -270,10 +270,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Agent</span></a>
+                            <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Users</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('admin/customer')}}">Agents</a></li>
-                                <li><a href="{{url('admin/create.customer')}}">Add Agent</a></li>
+                                <li><a href="{{url('admin/user')}}">User</a></li>
+                                <li><a href="{{url('admin/user/create')}}">Add User</a></li>
                             </ul>
                         </li>
                         <li>

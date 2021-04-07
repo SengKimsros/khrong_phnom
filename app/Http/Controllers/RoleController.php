@@ -17,8 +17,6 @@ class RoleController extends Controller
      */
     public function index()
     {
-        // $iduser=RolePermission(1);
-        // dd($iduser);
         $sql="SELECT id,name,(SELECT COUNT(*) FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=4 and permisions.position_id=1 LIMIT 1) as _view,(SELECT COUNT(*) FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=1 and permisions.position_id=1 LIMIT 1) as _add,
         (SELECT COUNT(*) FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=2 and permisions.position_id=1 LIMIT 1) as _update,(SELECT COUNT(*) FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=3 and permisions.position_id=1 LIMIT 1) as _delete FROM tables";
         $role_permission=DB::select($sql);
