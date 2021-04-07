@@ -26,8 +26,7 @@ class CreateHomesTable extends Migration
             $table->text('image')->nullable();
             $table->bigInteger('currency_id')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->bigInteger('updated_by')->nullable();
+            $table->timestamps();
 
         });
     }
