@@ -1,5 +1,6 @@
 @extends('../layouts.app')
 @section('content')
+
 <div class="page-wrapper">
     <!-- ===== Page-Container ===== -->
     <div class="container-fluid">
@@ -15,7 +16,7 @@
 
         <div style="min-height: 525px;">
             <div class="white-box">
-                <table id="btnProject" class="table table-large mb-0  nowrap w-100">
+                <table id="btnProject" class="table table-large mb-0  nowrap w-100 table-hover">
                     <thead>
                         <tr>
                             <th>Image</th>
@@ -30,12 +31,12 @@
                         @if (count($row)>0)
                             @foreach ($row as $item)
                                 <tr>
-                                    <th><img src="/cubic/plugins/images/img1.jpg" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
+                                    <th><img src="{{$item->image}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
                                     <th style="padding-top: 30px;"> <a href="javascript:">{{$item->name}}</a> </th>
                                     <th style="padding-top: 30px;">{{  $newDate = date("d-m-Y", strtotime($item->created_at)) }}</th>
                                     <td class="align-middle text-center">{{$item->status}}</td>
                                     <th style="padding-top: 30px;text-align: center;">
-                                        <a href="{{url('dashboard/project/form')}}/{{$item->id}}" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
+                                        <a href="{{url('admin/project')}}/{{$item->id}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
                                         <a href="javascript:" id="btnDelete" data-id="{{$item->id}}" class="btn btn-danger btn-sm">{{__('Delete')}}</a>
                                     </th>
                                 </tr>
@@ -59,3 +60,4 @@
     </footer>
 </div>
 @endsection
+

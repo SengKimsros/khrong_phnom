@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\admin\position;
+use App\Models\role;
+use App\Models\table;
 use App\Models\project;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     /**
@@ -14,8 +16,18 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $sql="SELECT id,name,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id=4 and permisions.position_id=1 LIMIT 1) as _view,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=1 and permisions.position_id=1 LIMIT 1) as _add,
+        (SELECT COUNT(*) FROM permisions 
+        WHERE tables.id = permisions.table_id and permisions.permission_type_id=2 and permisions.position_id=1 LIMIT 1) as _update,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=3 and permisions.position_id=1 LIMIT 1) as _delete 
+        FROM tables";
+        $role_permission = DB::select($sql);
+        $role = position::where('status',1)->orderBy('id')->get();
+
         $row = DB::table('projects')->get();
-        return view('admin.project.project',['row'=>$row]);
+        return view('admin.project.project',['row'=>$row,'role'=>$role,'table'=>$role_permission]);
     }
 
     /**
@@ -37,7 +49,8 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $saved = Project::FunctionSave($request);
-        return response()->json(['success'=>$saved]);
+        echo 1;
+        // return response()->json(['success'=>$saved]);
     }
 
     /**
@@ -48,7 +61,7 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
-        //
+        return view('admin.project.project-add',["rows"=>$project]);
     }
 
     /**
@@ -59,7 +72,7 @@ class ProjectController extends Controller
      */
     public function edit(project $project)
     {
-        //
+        return view('admin.project.project-add',["rows"=>$project]);
     }
 
     /**

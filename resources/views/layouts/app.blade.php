@@ -11,6 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="/cubic/plugins/images/favicon.png">
     <title>Krong Phnom</title>
+    <!-- ===== sweetalert2 CSS ===== -->
+    <link rel="stylesheet" href="/cubic/css/toastr.css">
+    <link rel="stylesheet" href="/cubic/css/sweetalert2.css" type="text/css">
     <!-- ===== Bootstrap CSS ===== -->
     <link href="/cubic/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
@@ -309,8 +312,11 @@
     <script src="/cubic/js/sidebarmenu.js"></script>
     <!-- ===== Custom JavaScript ===== -->
     <script src="/cubic/js/custom.js"></script>
+    <!-- ===== toastr JS ===== -->
+    <script src="/cubic/js/toastr.min.js"></script>
+    <script src="/cubic/js/sweetalert2.min.js"></script>
     <!-- ===== ckeditor JS ===== -->
- 
+        
     <!-- ===== Plugin JS ===== -->
     <script src="/cubic/plugins/components/chartist-js/dist/chartist.min.js"></script>
     <script src="/cubic/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>

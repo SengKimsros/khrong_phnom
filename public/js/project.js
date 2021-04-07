@@ -1,18 +1,5 @@
 
-
-var dataGlobal;
 $(function(){
-    $(".checkAll").on("click",function(){
-        var arrChecke = [];
-        $(".checkAll:checked").each(function(e){
-            arrChecke[e]={
-                features : $(this).val()
-            }
-        });
-        dataGlobal=null;
-        dataGlobal=arrChecke;
-    });
-
     $(".hiddenTitle").hide();
     $(".btbSEO").on("click" ,function(){
         $(".hiddenTitle").toggle();
@@ -46,30 +33,39 @@ $(function(){
     $(".btnSave").on('click',function(){
         FunctionSave();
     });
-
-    $(".bntAddNew").on('click',function(){
-        AddNewRecord();
-    });
-
-    $(".selectFacility").delegate(".btnRemove","click",function(){
-        var tr = $(this).closest('.getSelect');
-        tr.remove();
+ 
+    $("#btnProject tbody").delegate('#btnDelete','click',function(){
+        Swal.fire({
+            title: 'Confirm Delete ?',
+            text: "Are you sure want to delete ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#17a2b8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+        }).then((result) => {
+            if (result.value) {
+                let delBy = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/project",
+                    data: {
+                        delBy   : delBy
+                    },
+                    success: function (response) {
+                        if(response.success==1){
+                            Swal.fire('Deleted!','data delete success.','success')
+                            window.location.reload();
+                        }
+                    }
+                });
+            }
+        });
     });
 });
 
 function FunctionSave(){
-    var arrFacility = [];
-    $(".select_facility").each(function(e){
-        var tr = $(this).closest('.getSelect');
-        var thisInput = $(this).val();
-        if(thisInput != ""){
-            arrFacility[e] = {
-                select_facility : thisInput,
-                distance        : tr.find(".distance").val()
-            }
-        }
-    });
-
     let num_miss = 0;
     $(".required_name").each(function(){
         if($(this).val() == ""){
@@ -90,11 +86,11 @@ function FunctionSave(){
                 type: "POST",
                 url: "/admin/project",
                 data: {
-                    // project_id      : $("#project_id").val(),
+                    project_id      : $("#project_id").val(),
                     csrf_token      : $("csrf-token").val(),
                     name            : $("#name").val(),
                     plan            : thumbnail2.value,
-                    descrition      : $("#description").val(),
+                    description     : $("#description").val(),
                     content         : $("#project_content").val(),
                     city            : $("#city").val(),
                     location        : $("#location").val(),
@@ -105,61 +101,16 @@ function FunctionSave(){
                     price_from      : $("#price_from").val(),
                     price_to        : $("#price_to").val(),
                     currency        : $("#currency").val(),
-                    arrFacility     : arrFacility,
-                    features        : dataGlobal,
                     seo_title       : $("#seo_title").val(),
                     seo_descript    : $("#seo_descript").val()
                 },
                 success: function (response) {
                     if(response == 1){
                         toastr.success("Data has been save success","Message Title");
-                        window.location.href="{{url('/dashboard/project/list')}}";
+                        window.location.href="/admin/project";
                     }
                 }
             });
         }
     }
-}
-function AddNewRecord(){
-    var html = '<div class="widget-body">'+
-                    '<div id="app-real-estate">'+
-                        '<div>'+
-                            '<div id="main">'+
-                                '<div class="form-group">'+
-                                    '<div class="row getSelect">'+
-                                        '<div class="col-md-3 col-sm-5">'+
-                                            '<div class="form-group">'+
-                                                '<div class="ui-select-wrapper">'+
-                                                    '<select class="ui-select form-control select_facility">'+
-                                                        '<option value="">Select facility</option>'+
-                                                        '<option value="1">Hospital</option>'+
-                                                        '<option value="2">Super Market</option>'+
-                                                        '<option value="3">School</option>'+
-                                                        '<option value="4">Entertainment</option>'+
-                                                        '<option value="5">Pharmacy</option>'+
-                                                        '<option value="6">Airport</option>'+
-                                                        '<option value="7">Railways</option>'+
-                                                        '<option value="8">Bus Stop</option>'+
-                                                        '<option value="9">Beach</option>'+
-                                                        '<option value="10">Mall</option>'+
-                                                        '<option value="11">Bank</option>'+
-                                                    '</select>'+ 
-                                                '</div>'+
-                                            '</div>'+
-                                        '</div>'+ 
-                                        '<div class="col-md-3 col-sm-5">'+
-                                            '<div class="form-group">'+
-                                                '<input id="distance" type="text" name="facilities[][distance]" placeholder="Distance (Km)" class="form-control distance">'+
-                                            '</div>'+
-                                        '</div>'+ 
-                                        '<div class="col-md-3 col-sm-2">'+
-                                            '<button type="button" class="btn btn-warning btnRemove" data-id="1" style="width: 50px;height: 50px;"><i class="fa fa-times"></i></button>'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'+ 
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>';
-    $(".selectFacility").append(html);
 }
