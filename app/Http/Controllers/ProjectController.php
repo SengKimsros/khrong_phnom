@@ -36,7 +36,8 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $saved = Project::FunctionSave($request);
+        return response()->json(['success'=>$saved]);
     }
 
     /**
