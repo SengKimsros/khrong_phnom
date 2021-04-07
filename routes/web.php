@@ -30,6 +30,9 @@ Route::get('/', function () {
 // })->name('dashboard');
 
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {

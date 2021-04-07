@@ -309,6 +309,8 @@
     <script src="/cubic/js/sidebarmenu.js"></script>
     <!-- ===== Custom JavaScript ===== -->
     <script src="/cubic/js/custom.js"></script>
+    <!-- ===== ckeditor JS ===== -->
+ 
     <!-- ===== Plugin JS ===== -->
     <script src="/cubic/plugins/components/chartist-js/dist/chartist.min.js"></script>
     <script src="/cubic/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
@@ -320,6 +322,15 @@
     <!-- ===== Style Switcher JS ===== -->
     <script src="/cubic/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
     <script src="/js/my_app.js"></script>
+    <script src="/js/project.js"></script>
+    @yield('customScript')
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr("content")
+            }
+        });
+    </script>
 </body>
 
 </html>
