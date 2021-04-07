@@ -26,7 +26,7 @@ class ProjectController extends Controller
         $role_permission = DB::select($sql);
         $role = position::where('status',1)->orderBy('id')->get();
 
-        $row = DB::table('projects')->get();
+        $row = DB::table('projects')->where('status',1)->get();
         return view('admin.project.project',['row'=>$row,'role'=>$role,'table'=>$role_permission]);
     }
 
@@ -93,8 +93,10 @@ class ProjectController extends Controller
      * @param  \App\Models\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(project $project)
+    public function destroy($id)
     {
-        //
+        $project=project::find($id);
+        $project->update(['status'=>0]);
+        return response()->json(['success'=>1]);
     }
 }

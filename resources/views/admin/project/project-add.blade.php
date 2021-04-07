@@ -62,8 +62,12 @@
                                             <label for="city_id" class="control-label">City</label>
                                             <div class="ui-select-wrapper form-group">
                                                 <select id="city" class="form-control select-search-full ui-select ui-select select2-hidden-accessible" name="city_id">
-                                                    <option value="0">Phnom Penh</option>
-                                                    <option value="1" >Oakland</option>
+                                                    <option value="1" @if (($rows['city'] ?? null)==1)
+                                                        selected
+                                                    @endif>Phnom Penh</option>
+                                                    <option value="0" @if (($rows['city'] ?? null)==0)
+                                                        selected
+                                                    @endif>Oakland</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -107,8 +111,12 @@
                                                 <label for="currency_id" class="control-label">Currency</label>
                                                 <div class="ui-select-wrapper form-group">
                                                     <select class="form-control select-full ui-select ui-select select2-hidden-accessible" id="currency" name="currency_id" tabindex="-1" aria-hidden="true">
-                                                        <option value="0" >USD</option>
-                                                        <option value="1" >VND</option>
+                                                        <option value="1" @if (($rows['currency_id'] ?? null)==1)
+                                                            selected
+                                                        @endif>USD</option>
+                                                        <option value="0" @if (($rows['currency_id'] ?? null)==0)
+                                                            selected
+                                                        @endif>VND</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -117,7 +125,7 @@
                                         <div class="card p-3" style="text-align: right;">
                                             <div class="btn-set">
                                                 <input type="hidden" name="" id="project_id" value="{{$rows['id'] ?? ''}}">
-                                                <a href="{{url('admin/project')}}" class="btn btn-secondary">Cancel</a>  
+                                                <a href="{{url('admin/project')}}" class="btn btn-danger">Cancel</a>  
                                                 <a href="javascript:" class="btn btn-success btnSave" is_lock=0><i class="fa fa-save"></i> Save</a>
                                             </div>
                                         </div>

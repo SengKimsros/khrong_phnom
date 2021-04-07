@@ -8,7 +8,7 @@ use DB;
 class project extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['status'];
     public static function FunctionSave($request){
         DB::beginTransaction();
         try {

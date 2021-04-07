@@ -48,11 +48,8 @@ $(function(){
             if (result.value) {
                 let delBy = $(this).data("id");
                 $.ajax({
-                    type: "POST",
-                    url: "/admin/project",
-                    data: {
-                        delBy   : delBy
-                    },
+                    type: "DELETE",
+                    url: "/admin/project/"+delBy,
                     success: function (response) {
                         if(response.success==1){
                             Swal.fire('Deleted!','data delete success.','success')
