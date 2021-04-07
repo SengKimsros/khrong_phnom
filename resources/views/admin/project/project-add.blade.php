@@ -262,8 +262,11 @@
     </footer>
 </div>
 @endsection
-
+<script src="/js/my_app.js"></script>
 <script>
+    $(function(){
+        alert(99);
+    });
     var dataGlobal;
     // $(function(){
        
