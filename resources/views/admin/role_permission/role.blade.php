@@ -8,6 +8,9 @@
                 <div class="col-md-4">
                     <div class="white-box">
                         <section>
+                            @if (RolePermission(1,1))
+                                <a href="" class="btn btn-info">ADD</a>
+                            @endif
                             <h3 class="box-title">Role</h3>
                             <ul class="list-group">
                                 @foreach ($role as $key=>$rol)
