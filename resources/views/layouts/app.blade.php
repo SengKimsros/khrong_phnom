@@ -28,6 +28,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    {{-- dataTable --}}
+    <link href="/cubic/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    {{-- End DataTable --}}
 </head>
 
 <body class="mini-sidebar">
@@ -310,7 +315,7 @@
     <!-- ===== Custom JavaScript ===== -->
     <script src="/cubic/js/custom.js"></script>
     <!-- ===== ckeditor JS ===== -->
- 
+
     <!-- ===== Plugin JS ===== -->
     <script src="/cubic/plugins/components/chartist-js/dist/chartist.min.js"></script>
     <script src="/cubic/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
@@ -321,6 +326,18 @@
     <script src="/cubic/js/db1.js"></script>
     <!-- ===== Style Switcher JS ===== -->
     <script src="/cubic/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+
+    {{-- DataTable --}}
+    <script src="/cubic/plugins/components/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    {{-- End DataTable --}}
     <script src="/js/my_app.js"></script>
     <script src="/js/project.js"></script>
     @yield('customScript')

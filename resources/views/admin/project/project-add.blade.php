@@ -18,9 +18,8 @@
                                             <input type="text" id="name" class="form-control required_name" value="">
                                             <span class="alertName" style="font-size: 12px;"></span>
                                         </div>
-                                        
                                         <div class="form-group">
-                                            <label for="">Plan</label> 
+                                            <label for="">Plan</label>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                   <a id="Plan" data-input="thumbnail2" data-input="holder1" class="btn btn-info"> <i class="fa fa-picture-o"></i> Choose</a>
@@ -28,20 +27,20 @@
                                                 <input id="thumbnail2" class="form-control" type="text" name="filepath" value="">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="">Description</label>
                                             <textarea id="description" class="form-control" rows="4" placeholder="Short description" data-counter="350" name="description" cols="50"></textarea>
                                         </div>
-                    
+
                                         <div class="form-group">
                                             <label for="">Content</label>
                                             <span class="text-danger">*</span>
                                             <textarea id="project_content" class="form-control textarea" rows="4" placeholder="Short description" data-counter="350" name="description" cols="50"></textarea>
                                         </div>
-                    
+
                                         <div class="form-group">
-                                            <label for="">Image</label> 
+                                            <label for="">Image</label>
                                             <span class="text-danger">*</span>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
@@ -50,7 +49,7 @@
                                                 <input id="thumbnail" class="form-control required_name" type="text" name="filepath" value="">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="city_id" class="control-label">City</label>
                                             <div class="ui-select-wrapper form-group">
@@ -63,7 +62,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                    
+
                                         <div class="form-group">
                                             <label for="">Location</label>
                                             <span class="text-danger">*</span>
@@ -72,7 +71,7 @@
                                         <div class="form-group">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.5325016133056!2d104.88496031412218!3d11.513608448303419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095062e8888a31%3A0xb76ac57b4c3cb2ac!2s131%2C%20Borey%20Piphop%20Thmey%2C%20Chamkar%20Doung%20Street%20(217)%2C%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1614301370684!5m2!1sen!2skh" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                                         </div>
-                    
+
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label for="number_block" class="control-label">Number blocks</label>
@@ -87,7 +86,7 @@
                                                 <input  id="number_flat" class="form-control" placeholder="Number flats" name="number_flat" type="number" value="">
                                             </div>
                                         </div>
-                    
+
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label for="price_from" class="control-label">Lowest price</label>
@@ -145,19 +144,19 @@
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> 
+                                                                            </div>
                                                                             <div class="col-md-3 col-sm-5">
                                                                                 <div class="form-group">
                                                                                     <input id="distance" type="text" name="facilities[][distance]" placeholder="Distance (Km)" class="form-control distance" value="">
                                                                                 </div>
-                                                                            </div> 
+                                                                            </div>
                                                                             <div class="col-md-3 col-sm-2">
                                                                                 <button type="button" class="btn btn-warning btnRemove" style="width: 50px;height: 50px;"><i class="fa fa-times"></i></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div> 
+                                                            </div>
                                                             <div class="form-group">
                                                                 <button type="button" class="btn btn-success bntAddNew">Add new</button>
                                                             </div>
@@ -198,7 +197,7 @@
                                                     <input class="checkAll" type="checkbox" value="7"> Security
                                                 </label>&nbsp;&nbsp;
                                                 <label class="checkbox-inline">
-                                                    <input class="checkAll" type="checkbox" value="8"> Fitness center 
+                                                    <input class="checkAll" type="checkbox" value="8"> Fitness center
                                                 </label>&nbsp;&nbsp;
                                             </div>
                                         </div>
@@ -215,11 +214,11 @@
                                                 </div>
                                             </div>
                                             <hr>
-                        
+
                                             <div class="seo-preview">
                                                 <p class="default-seo-description">Setup meta title &amp; description to make your site easy to discovered on search engines such as Google</p>
                                             </div>
-                        
+
                                             <div class="row hiddenTitle">
                                                 <div class="col-md-12">
                                                     <hr>
@@ -227,7 +226,7 @@
                                                         <label for="seo_title" class="control-label">SEO Title</label>
                                                         <input id="seo_title" class="form-control" placeholder="SEO Title" data-counter="120" type="text" value="">
                                                     </div>
-                        
+
                                                     <div class="form-group">
                                                         <label for="seo_title" class="control-label">SEO description</label>
                                                         <textarea id="seo_descript" class="form-control" rows="3" placeholder="SEO description" data-counter="155" cols="50" value=""></textarea>
@@ -239,7 +238,7 @@
                                         <div class="card p-3" style="text-align: right;">
                                             <div class="btn-set">
                                                 <input type="hidden" name="" id="project_id" value="">
-                                                <a href="" class="btn btn-secondary">Cancel</a>  
+                                                <a href="" class="btn btn-secondary">Cancel</a>
                                                 <a href="javascript:" class="btn btn-success btnSave" is_lock=0><i class="fa fa-save"></i> Save</a>
                                             </div>
                                         </div>
@@ -263,7 +262,7 @@
     <script src="/ckeditor/ckeditor.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
-        
+
         var options = {
             filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
             filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',

@@ -29,8 +29,7 @@ class CreateProjectsTable extends Migration
             $table->double('max_price')->nullable();
             $table->bigInteger('currency_id')->nullable();
             $table->boolean('status')->nullable();
-            $table->timestamp('create_at')->nullable();
-            $table->integer('updated_by')->nullable();
+            $table->timestamps();
         });
     }
 

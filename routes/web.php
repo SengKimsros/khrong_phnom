@@ -54,13 +54,7 @@ Route::prefix('admin')->group(function () {
             return view('admin.post.post-add');
         })->name('create.post');
 
-        // Route::get('/customer',function(){
-        //     return view('admin.customer.customer');
-        // })->name('customer');
 
-        // Route::get('create/customer',function(){
-        //     return view('admin.customer.customer-add');
-        // })->name('create.customer');
 
     });
 });
