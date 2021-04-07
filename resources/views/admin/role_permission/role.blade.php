@@ -23,9 +23,8 @@
                     <div class="white-box">
                         <section>
                             <h3 class="box-title">Permission</h3>
-                            {{-- @dump($table) --}}
                             <div class="clearfix icon-list-demo">
-                                <table class="table">
+                                <table class="table" id="tbl_role_permission">
                                     <thead>
                                         <tr>
                                             <th>Table</th>
@@ -39,10 +38,18 @@
                                         @foreach ($table as $item)
                                             <tr>
                                                 <td>{{$item->name ?? ''}}</td>
-                                                <td><input type="checkbox" name="view" id="" onclick="addPermission(1,2);"></td>
-                                                <td><input type="checkbox" name="add" id=""></td>
-                                                <td><input type="checkbox" name="update" id=""></td>
-                                                <td><input type="checkbox" name="delete" id=""></td>
+                                                <td><input type="checkbox" name="view" id="" onclick="addPermission(this,{{$item->id ?? 0}},4);" @if (($item->_view ?? 0)>0)
+                                                    checked
+                                                @endif></td>
+                                                <td><input type="checkbox" name="add" id="" onclick="addPermission(this,{{$item->id ?? 0}},1);" @if (($item->_add ?? 0)>0)
+                                                    checked
+                                                @endif></td>
+                                                <td><input type="checkbox" name="update" id="" onclick="addPermission(this,{{$item->id ?? 0}},2);" @if (($item->_update ?? 0)>0)
+                                                    checked
+                                                @endif></td>
+                                                <td><input type="checkbox" name="delete" id="" onclick="addPermission(this,{{$item->id ?? 0}},3);" @if (($item->_delete ?? 0)>0)
+                                                    checked
+                                                @endif></td>
                                             </tr>
                                         @endforeach
 
@@ -61,14 +68,33 @@
     </footer>
 </div>
 <script>
-    function addPermission(table_id,id){
+    function addPermission(e,table_id,id){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         var position_id=0;
         $('section ul li').each(function(value){
             if($(this).hasClass('active')){
-                position_id=value+1;
+                position_id=$(this).val();
             }
         });
-        alert(position_id);
+        if(e.checked){
+            insert_update=1;
+        }else{
+            insert_update=0;
+        }
+        $.ajax({
+            type:'POST',
+            url:'/admin/permission',
+            data:{
+                _token: CSRF_TOKEN,
+                table_id:table_id,
+                permission_type_id:id,
+                position_id:position_id,
+                checked:insert_update
+            },
+            success:function(data){
+               console.log(data.success);
+            }
+         });
     }
 </script>
 @endsection

@@ -39,6 +39,12 @@ class CreatePermissionTypesTable extends Migration
                     'created_at'=>now(),
                     'updated_at'=>now()
                 ],
+                [
+                    'name'=>'View',
+                    'status'=>1,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ],
             ]
         );
     }
