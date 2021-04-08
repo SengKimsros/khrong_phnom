@@ -274,7 +274,7 @@
                             <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-notebook fa-fw"></i> <span class="hide-menu"> Post </span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('admin/post')}}">Post</a></li>
-                                <li><a href="{{url('admin/create.post')}}">Add Post</a></li>
+                                <li><a href="{{url('admin/post/create')}}">Add Post</a></li>
                             </ul>
                         </li>
                         <li>

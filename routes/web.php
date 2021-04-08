@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermisionController;
 use App\Http\Controllers\PermissionTypeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -44,17 +45,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('role', RoleController::class);
         Route::resource('permission',PermisionController::class);
         Route::resource('user', UserController::class);
-
-
-        Route::get('/post',function(){
-            return view('admin.post.post');
-        })->name('post');
-
-        Route::get('/create/post',function(){
-            return view('admin.post.post-add');
-        })->name('create.post');
-
-
-
+        Route::resource('post',PostController::class);
     });
 });
