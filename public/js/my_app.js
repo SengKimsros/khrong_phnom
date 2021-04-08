@@ -1,7 +1,13 @@
+
 $(function(){
-    // $('table').each(function(){
-    //     $(this).DataTable();
-    // });
+    $('table').each(function(){
+        $(this).DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
     // role
     $('section ul li').on('click',function($key,value){
         $('section ul li').removeClass('active');
