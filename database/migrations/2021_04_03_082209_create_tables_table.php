@@ -56,6 +56,12 @@ class CreateTablesTable extends Migration
                 'status'=>1,
                 'created_at'=>now(),
                 'updated_at'=>now()
+            ],
+            [
+                'name'=>'Post',
+                'status'=>1,
+                'created_at'=>now(),
+                'updated_at'=>now()
             ]
         ]);
     }

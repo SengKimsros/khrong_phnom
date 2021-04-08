@@ -10,7 +10,7 @@
                     @if(RolePermission(1,1))
                         <a href="{{url('admin/project/create')}}" class="btn btn-success" tabindex="0" type="button">
                             <span data-action="create"><i class="fa fa-plus"></i> Create New</span>
-                        </a> 
+                        </a>
                     @endif
                 </div>
             </div>
@@ -27,7 +27,7 @@
                             <th style="text-align: center;">{{__('Actions')}}</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         @foreach ($row as $item)
                             <tr>
@@ -36,7 +36,7 @@
                                 <th style="padding-top: 30px;">{{  $newDate = date("d-m-Y", strtotime($item->created_at)) }}</th>
                                 <th style="padding-top: 30px;text-align: center;">
                                     @if (RolePermission(1,2))
-                                        <a href="{{url('admin/project')}}/{{$item->id}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a> 
+                                        <a href="{{url('admin/project')}}/{{$item->id}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
                                     @endif
                                     @if (RolePermission(1,3))
                                         <a href="javascript:" id="btnDelete" data-id="{{$item->id}}" class="btn btn-danger btn-sm">{{__('Delete')}}</a>
@@ -48,7 +48,7 @@
                 </table>
             </div>
         </div>
-        
+
     </div>
     <!-- ===== Page-Container-End ===== -->
     <footer class="footer t-a-c">
