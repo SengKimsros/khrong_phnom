@@ -16,17 +16,17 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $sql="SELECT id,name,(SELECT COUNT(*) 
-        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id=4 and permisions.position_id=1 LIMIT 1) as _view,(SELECT COUNT(*) 
-        FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=1 and permisions.position_id=1 LIMIT 1) as _add,
+        $sql = "SELECT id,name,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 4 and permisions.position_id = 1 LIMIT 1) as _view,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 1 and permisions.position_id = 1 LIMIT 1) as _add,
         (SELECT COUNT(*) FROM permisions 
         WHERE tables.id = permisions.table_id and permisions.permission_type_id=2 and permisions.position_id=1 LIMIT 1) as _update,(SELECT COUNT(*) 
-        FROM permisions WHERE tables.id=permisions.table_id and permisions.permission_type_id=3 and permisions.position_id=1 LIMIT 1) as _delete 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 3 and permisions.position_id = 1 LIMIT 1) as _delete 
         FROM tables";
         $role_permission = DB::select($sql);
         $role = position::where('status',1)->orderBy('id')->get();
 
-        $row = DB::table('projects')->where('status',1)->get();
+        $row = DB::table('projects')->where('status',1)->orderBy('id')->get();
         return view('admin.project.project',['row'=>$row,'role'=>$role,'table'=>$role_permission]);
     }
 
