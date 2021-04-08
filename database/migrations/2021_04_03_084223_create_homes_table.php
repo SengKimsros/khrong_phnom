@@ -15,6 +15,7 @@ class CreateHomesTable extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('project_id')->nullable();
             $table->text('title')->nullable();
             $table->text('slug')->nullable();
             $table->text('content')->nullable();
@@ -25,7 +26,7 @@ class CreateHomesTable extends Migration
             $table->bigInteger('bath_rooms')->nullable();
             $table->text('image')->nullable();
             $table->bigInteger('currency_id')->nullable();
-            $table->boolean('status')->nullable();
+            $table->boolean('status')->nullable()->comment('');
             $table->timestamps();
 
         });

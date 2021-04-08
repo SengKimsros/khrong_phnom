@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <a href="{{url('admin/project/create')}}" class="btn btn-success" tabindex="0" type="button">
                         <span data-action="create"><i class="fa fa-plus"></i> Create New</span>
-                    </a> 
+                    </a>
                 </div>
             </div>
         </div>
@@ -26,10 +26,9 @@
                             <th style="text-align: center;">{{__('Actions')}}</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
-                        @if (count($row)>0)
-                            @foreach ($row as $item)
+                        @foreach ($row as $item)
                                 <tr>
                                     <th><img src="{{$item->image}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
                                     <th style="padding-top: 30px;"> <a href="javascript:">{{$item->name}}</a> </th>
@@ -41,18 +40,11 @@
                                     </th>
                                 </tr>
                             @endforeach
-                        @else
-                            <tr>
-                                <td colspan="7">
-                                    <h4 class="mt-3 text-center">{{__('No Record to display.')}}</h4>
-                                </td>
-                            </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
     </div>
     <!-- ===== Page-Container-End ===== -->
     <footer class="footer t-a-c">
