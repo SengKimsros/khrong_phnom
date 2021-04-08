@@ -7,9 +7,11 @@
         <div class="row">
             <div class="col-md-12" style="text-align: right;">
                 <div class="form-group">
-                    <a href="{{url('admin/project/create')}}" class="btn btn-success" tabindex="0" type="button">
-                        <span data-action="create"><i class="fa fa-plus"></i> Create New</span>
-                    </a>
+                    @if(RolePermission(1,1))
+                        <a href="{{url('admin/project/create')}}" class="btn btn-success" tabindex="0" type="button">
+                            <span data-action="create"><i class="fa fa-plus"></i> Create New</span>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -29,17 +31,21 @@
 
                     <tbody>
                         @foreach ($row as $item)
-                                <tr>
-                                    <th><img src="{{$item->image}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
-                                    <th style="padding-top: 30px;"> <a href="javascript:">{{$item->name}}</a> </th>
-                                    <th style="padding-top: 30px;">{{  $newDate = date("d-m-Y", strtotime($item->created_at)) }}</th>
-                                    <td class="align-middle text-center">{{$item->status}}</td>
-                                    <th style="padding-top: 30px;text-align: center;">
+                            <tr>
+                                <th><img src="{{$item->image}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
+                                <th style="padding-top: 30px;"> <a href="javascript:">{{$item->name}}</a> </th>
+                                <th style="padding-top: 30px;">{{  $newDate = date("d-m-Y", strtotime($item->created_at)) }}</th>
+                                <td class="align-middle text-center">{{$item->status}}</td>
+                                <th style="padding-top: 30px;text-align: center;">
+                                    @if (RolePermission(1,2))
                                         <a href="{{url('admin/project')}}/{{$item->id}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
+                                    @endif
+                                    @if (RolePermission(1,3))
                                         <a href="javascript:" id="btnDelete" data-id="{{$item->id}}" class="btn btn-danger btn-sm">{{__('Delete')}}</a>
-                                    </th>
-                                </tr>
-                            @endforeach
+                                    @endif
+                                </th>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -27,6 +27,7 @@ class project extends Model
             $saved->lowest_price    = $request->price_from;
             $saved->max_price       = $request->price_to;
             $saved->currency_id     = $request->currency;
+            $saved->status          = 1;
             $saved->save();
             DB::commit();
             return 1;
