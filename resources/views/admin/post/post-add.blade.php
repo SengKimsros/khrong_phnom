@@ -11,49 +11,59 @@
                         <div class="white-box">
                             <h3 class="box-title m-b-0">Add Post</h3><br><br>
                             <div class="row">
-                                @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <strong>Whoops!</strong> There were some problems with your input.
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <form method="POST" action="/admin/user/{{$user['id'] ?? null}}" enctype="multipart/form-data">
-                                    @if (isset($user))
-                                    <input name="_method" type="hidden" value="PUT">
-                                    @endif
-                                    @csrf
+                                <form method="" action="" enctype="multipart/form-data">
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <label for="">Title</label>
                                             <span class="text-danger">*</span>
-                                            <input type="text" name="first_name" class="form-control required_name" value="{{$user['first_name'] ?? ''}}">
+                                            <input type="text" id="post_title" name="post_title"  class="form-control required_name" value="{{$rows['title'] ?? ""}}">
+                                            <span class="alertName" style="font-size: 12px;"></span>
                                         </div>
                                     </div>
 
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label for="">Slug</label> 
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                <a id="post_image" name="post_image" data-input="thumbnail1" data-input="holder1" class="btn btn-info"> <i class="fa fa-picture-o"></i> Choose</a>
+                                                </span>
+                                                <input id="thumbnail1" class="form-control" type="text" name="filepath" value="{{$rows['slug'] ?? ""}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <img src="{{$rows['slug'] ?? ""}}" alt="" style="width: 100px;">
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <label for="">Content</label>
                                             <span class="text-danger">*</span>
-                                            <textarea name="content" id="content"></textarea>
+                                            <textarea id="content" class="form-control" rows="4" placeholder="Short description" data-counter="350" name="" cols="50">{{$rows['content'] ?? ""}}</textarea>
                                         </div>
-
                                     </div>
 
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <label for="">Content</label>
-                                            <span class="text-danger">*</span>
-                                            <input type="file" class="form-control" name="thumnail">
+                                            <label for="">Thumbnail</label> 
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                <a id="post_thumbnail" data-input="thumbnail2" data-input="holder1" class="btn btn-info"> <i class="fa fa-picture-o"></i> Choose</a>
+                                                </span>
+                                                <input id="thumbnail2" class="form-control" type="text" name="filepath" value="{{$rows['post_thumbnail'] ?? ""}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <img src="{{$rows['post_thumbnail'] ?? ""}}" alt="" style="width: 100px;">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12 text-right">
-                                        <a href="{{url('admin/user')}}" class="btn btn-danger">Cancel</a>
-                                        <input type="submit" class="btn btn-info" value="Submit">
+                                        <input type="hidden" name="" id="post_id" value="{{$rows['id'] ?? ""}}">
+                                        <a href="{{url('/admin/post')}}" class="btn btn-danger">Cancel</a>
+                                        <a href="javascript:" class="btn btn-success btnSavePost" is_lock=0><i class="fa fa-save"></i> Save</a>
                                     </div>
                                 </form>
                             </div>
@@ -81,8 +91,9 @@
             filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
             filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
         };
-        CKEDITOR.replace('content',options);
+        CKEDITOR.replace('post_content',options);
         var route_prefix1 = "/laravel-filemanager?type=Files";
-        $('#Plan').filemanager('file', {prefix: route_prefix1});
+        $('#post_image').filemanager('file', {prefix: route_prefix1});
+        $('#post_thumbnail').filemanager('file', {prefix: route_prefix1});
     </script>
 @endsection

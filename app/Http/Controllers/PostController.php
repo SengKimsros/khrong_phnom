@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\PostController;
+use App\Models\admin\position;
+use App\Models\role;
+use App\Models\table;
+use DB;
 class PostController extends Controller
 {
     /**
@@ -14,7 +18,18 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.post');
+        $sql = "SELECT id,name,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 4 and permisions.position_id = 1 LIMIT 1) as _view,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 1 and permisions.position_id = 1 LIMIT 1) as _add,
+        (SELECT COUNT(*) FROM permisions 
+        WHERE tables.id = permisions.table_id and permisions.permission_type_id=2 and permisions.position_id=1 LIMIT 1) as _update,(SELECT COUNT(*) 
+        FROM permisions WHERE tables.id = permisions.table_id and permisions.permission_type_id = 3 and permisions.position_id = 1 LIMIT 1) as _delete 
+        FROM tables";
+        $role_permission = DB::select($sql);
+        
+        $role = position::where('status',1)->orderBy('id')->get();
+        $row = DB::table('posts')->where('status',1)->orderBy('id')->get();
+        return view('admin.post.post',['rows'=>$row,'role'=>$role,'table'=>$role_permission]);
     }
 
     /**
@@ -35,7 +50,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $saved = Post::savePost($request);
+        echo 1;
     }
 
     /**
@@ -46,7 +62,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+      
     }
 
     /**
@@ -57,7 +73,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.post.post-add',['rows'=>$post]);
     }
 
     /**
@@ -78,8 +94,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->update(['status'=>0]);
+        return response()->json(['success'=>1]);
     }
 }

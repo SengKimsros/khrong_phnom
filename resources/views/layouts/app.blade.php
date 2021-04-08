@@ -345,6 +345,7 @@
     {{-- End DataTable --}}
     <script src="/js/my_app.js"></script>
     <script src="/js/project.js"></script>
+    <script src="/js/post.js"></script>
     @yield('customScript')
     <script type="text/javascript">
         $.ajaxSetup({
