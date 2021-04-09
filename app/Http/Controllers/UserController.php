@@ -75,14 +75,13 @@ class UserController extends Controller
                 'profile_photo_path'=>$path,
                 'phone'=>$request->phone,
                 'status'=>1
-
             ];
 
             DB::table('users')->insert($data);
             DB::commit();
-            return redirect('/admin/user')->with('status', 'User is inserted  !!');
+            return redirect('/admin/user')->with('success', 'User is inserted  !!');
         } catch (\Throwable $th) {
-            // DB::rollBack();
+            DB::rollBack();
             throw $th;
         }
     }

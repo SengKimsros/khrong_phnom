@@ -40,7 +40,11 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::resource('dashboard', DashboardController::class);
         Route::resource('project', ProjectController::class);
+
+        // home
         Route::resource('home', HomeController::class);
+        Route::get('gethomebyid/{id}',[HomeController::class,'getHomeListByThumbnailId']);
+        // home
         Route::resource('booking', BookingController::class);
         Route::resource('role', RoleController::class);
         Route::resource('permission',PermisionController::class);

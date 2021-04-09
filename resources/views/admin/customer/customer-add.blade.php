@@ -30,21 +30,21 @@
                                         <div class="form-group">
                                             <label for="">First Name</label>
                                             <span class="text-danger">*</span>
-                                            <input type="text" name="first_name" class="form-control required_name" value="{{$user['first_name'] ?? ''}}">
+                                            <input type="text" name="first_name" class="form-control required_name" value="{{old('first_name')?old('first_name'):($user['first_name'] ?? '')}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
                                         <div class="form-group">
                                             <label for="">Last Name</label>
                                             <span class="text-danger">*</span>
-                                            <input type="text" name="last_name" class="form-control required_name" value="{{$user['last_name'] ?? ''}}">
+                                            <input type="text" name="last_name" class="form-control required_name" value="{{old('last_name')?old('last_name'):($user['last_name'] ?? '')}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <label for="">Profile</label>
                                             <span class="text-danger">*</span>
-                                            <input type="file" name="profile" class="form-control required_name" value="">
+                                            <input type="file" name="profile" class="form-control required_name" value="{{old('profile')?old('profile'):null}}">
                                         </div>
                                         <input type="hidden" name="profile_hidden" value="{{$user['profile_photo_path'] ?? ''}}">
                                     </div>
@@ -65,10 +65,10 @@
                                             <label for="">Gender</label>
                                             <span class="text-danger">*</span>
                                             <select name="gender" id="" class="form-control">
-                                                <option value="1" @if (($user['gender'] ?? null)==1)
+                                                <option value="1" @if ((old('gender')?old('gender'):($user['gender'] ?? null))==1)
                                                     selected
                                                 @endif>Male</option>
-                                                <option value="0" @if (($user['gender'] ?? null)==0)
+                                                <option value="0" @if ((old('gender')?old('gender'):($user['gender'] ?? null))==0)
                                                     selected
                                                 @endif>Female</option>
                                             </select>
@@ -81,7 +81,7 @@
                                             <select name="position" id="" class="form-control">
 
                                                 @foreach ($position as $item)
-                                                    @if (($user['position_id'] ?? null)==($item->id ?? 0))
+                                                    @if (old('position')?old('position'):($user['position_id'] ?? null)==($item->id ?? 0))
                                                         <option value="{{$item->id ?? 0}}" selected>{{$item->name ?? ''}}</option>
                                                     @else
                                                         <option value="{{$item->id ?? 0}}">{{$item->name ?? ''}}</option>
@@ -95,28 +95,28 @@
                                         <div class="form-group">
                                             <label for="">Phone</label>
                                             <span class="text-danger">*</span>
-                                            <input type="text" name="phone" class="form-control required_name" value="{{$user['phone'] ?? ''}}">
+                                            <input type="text" name="phone" class="form-control required_name" value="{{old('phone')?old('phone'):($user['phone'] ?? '')}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
                                         <div class="form-group">
                                             <label for="">Email</label>
                                             <span class="text-danger">*</span>
-                                            <input type="email" class="form-control" name="email" value="{{$user['email'] ?? ''}}">
+                                            <input type="email" class="form-control" name="email" value="{{old('email')?old('email'):($user['email'] ?? '')}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
                                         <div class="form-group">
                                             <label for="">Password</label>
                                             <span class="text-danger">*</span>
-                                            <input type="password" name="password" class="form-control">
+                                            <input type="password" name="password" class="form-control" value="{{old('password')?old('password'): null}}">
                                             <input type="hidden" name="password_hidden" value="{{$user['password'] ?? ''}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <label for="">Description</label>
-                                            <textarea name="description" class="form-control" rows="5">{{$user['description'] ?? ''}}</textarea>
+                                            <textarea name="description" class="form-control" rows="5">{{old('description')?old('description'):($user['description'] ?? '')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12 text-right">
@@ -139,6 +139,7 @@
 @endsection
 
 @section("customScript")
+    <script src="/js/jquery.annotate.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
@@ -153,4 +154,5 @@
         var route_prefix1 = "/laravel-filemanager?type=Files";
         $('#Plan').filemanager('file', {prefix: route_prefix1});
     </script>
+
 @endsection

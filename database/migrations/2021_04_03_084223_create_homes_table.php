@@ -27,6 +27,10 @@ class CreateHomesTable extends Migration
             $table->text('image')->nullable();
             $table->bigInteger('currency_id')->nullable();
             $table->boolean('status')->nullable()->comment('');
+            $table->bigInteger('width')->nullable();
+            $table->bigInteger('height')->nullable();
+            $table->bigInteger('top')->nullable();
+            $table->bigInteger('left')->nullable();
             $table->timestamps();
 
         });

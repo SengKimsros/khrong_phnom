@@ -42,46 +42,43 @@
             </div>
         </div>
         <div style="min-height: 525px;">
+            @dump($home)
             <div class="white-box">
                 <table id="btnProject" class="table table-large mb-0  nowrap w-100">
                     <thead>
                         <tr>
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Content</th>
                             <th>Price</th>
                             <th>Size</th>
                             <th>Bed Rooms</th>
                             <th>Bath Rooms</th>
+                            <th>Description</th>
                             <th>Status</th>
                             <th style="text-align: center;">{{__('Actions')}}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($users as $item)
+                        @foreach ($home as $item)
                                 <tr>
-                                    <th><img src="/{{$item->profile_photo_path ?? ''}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
-                                    <th style="padding-top: 30px;"> <a href="javascript:">{{$item->username ?? ''}}</a> </th>
-                                    <td>
-                                        @if (($item->gender ?? 0)==1)
-                                            Male
-                                        @else
-                                            Female
-                                        @endif
-                                    </td>
-                                    <th style="padding-top: 30px;">{{$item->phone}}</th>
-                                    <td class="align-middle text-center">{{$item->email ?? ''}}</td>
-                                    <td>{{$item->position_name ?? ''}}</td>
+                                    <th><img src="/storage/{{$item->image ?? ''}}" alt="" style="width: 60px;height: 60px;object-fit: cover;"></th>
+                                    <th style="padding-top: 30px;"> <a href="javascript:">{{$item->title ?? ''}}</a> </th>
+                                    <td class="align-middle text-center">{{$item->price ?? ''}}</td>
+                                    <td>{{$item->size ?? ''}}</td>
+                                    <td>{{$item->bed_rooms ?? ''}}</td>
+                                    <td>{{$item->bath_rooms ?? ''}}</td>
+                                    <th>{{$item->description ?? ''}}</th>
+                                    <th>{{$item->status ?? ''}}</th>
                                     <th style="padding-top: 30px;text-align: center;">
                                         @if (RolePermission(4,2))
-                                            <a href="{{url('admin/user')}}/{{$item->id ?? ''}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
+                                            <a href="{{url('admin/home')}}/{{$item->id ?? ''}}/edit" id="btnEdit" data-id="{{$item->id}}" class="btn btn-primary btn-sm">{{__('Edit')}}</a>
                                         @endif
                                         @if (RolePermission(4,3))
                                             <a href="javascript:" class="btn btn-danger btn-sm" onclick="delete_user({{$item->id ?? 0}})">{{__('Delete')}}</a>
                                         @endif
                                     </th>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                     </tbody>
                 </table>
             </div>
