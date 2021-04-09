@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\currency;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCurrenciesTable extends Migration
@@ -19,6 +21,7 @@ class CreateCurrenciesTable extends Migration
             $table->boolean('status')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

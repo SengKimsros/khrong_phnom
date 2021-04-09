@@ -9,6 +9,9 @@ function menu(){
 }
 
 function RolePermission($table_id,$permission){
+    if(Auth::user()->id==1){
+        return true;
+    }
     $user_id=Auth::user()->position_id;
     $add=permision::where([
         ['table_id',$table_id],
