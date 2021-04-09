@@ -100,4 +100,8 @@ class PostController extends Controller
         $post->update(['status'=>0]);
         return response()->json(['success'=>1]);
     }
+
+    public function testIPanorama(){
+        return view('admin.post.test');
+    }
 }

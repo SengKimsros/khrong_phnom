@@ -46,5 +46,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('permission',PermisionController::class);
         Route::resource('user', UserController::class);
         Route::resource('post',PostController::class);
+        Route::get('testIPanorama',[PostController::class,'testIPanorama']);
     });
 });

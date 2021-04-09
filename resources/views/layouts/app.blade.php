@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="/cubic/plugins/images/favicon.png">
     <title>Krong Phnom</title>
@@ -36,6 +35,25 @@
     <link href="/cubic/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     {{-- End DataTable --}}
+
+    
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/angular-growl.min.css">
+    <link rel="stylesheet" type="text/css" href="/cubic/css/lib/style.css">
+
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/effect.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/ipanorama.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/ipanorama.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/ipanorama.theme.modern.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/ipanorama.theme.dark.css">
+	<link rel="stylesheet" type="text/css" href="/cubic/css/fonts/fontawesome-webfont.woff">
+	<!-- /end css -->
+	
+	<!-- prettyprint -->
+	<link rel="stylesheet" type="text/css" href="/cubic/css/lib/prettify.css">
+	<!-- /end prettyprint -->
+
 </head>
 
 <body class="mini-sidebar">
@@ -343,6 +361,22 @@
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     {{-- End DataTable --}}
+    <script type="text/javascript" src="/cubic/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/prettify.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/filesaver.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/three.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/jquery.ipanorama.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/angular-growl.min.js"></script>
+    <script type="text/javascript" src="/cubic/js/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="/js/app.min.js"></script>
+    <script type="text/javascript" src="/js/services.js"></script>
+    <script type="text/javascript" src="/js/controllers.js"></script>
+    <script type="text/javascript" src="/js/directives.js"></script>
+    <script type="text/javascript" src="/js/filters.js"></script>
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="/js/my_app.js"></script>
     <script src="/js/project.js"></script>
     <script src="/js/post.js"></script>

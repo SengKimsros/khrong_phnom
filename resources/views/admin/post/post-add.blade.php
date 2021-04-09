@@ -96,4 +96,10 @@
         $('#post_image').filemanager('file', {prefix: route_prefix1});
         $('#post_thumbnail').filemanager('file', {prefix: route_prefix1});
     </script>
+    <script>
+	
+        $(document).ready(function(){
+            console.log(appData);
+        });
+    </script>
 @endsection
